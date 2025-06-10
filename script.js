@@ -1,5 +1,4 @@
-// Efeito de animação suave ao rolar
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   const sections = document.querySelectorAll('.content-section, .conclusion');
 
   const observer = new IntersectionObserver((entries) => {
@@ -9,7 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
         entry.target.style.transform = "translateY(0)";
       }
     });
-  }, { threshold: 0.1 });
+  }, {
+    threshold: 0.1
+  });
 
   sections.forEach(section => {
     section.style.opacity = "0";
@@ -18,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(section);
   });
 
-  // Animação do header
   const header = document.querySelector('header');
   header.style.opacity = "0";
   header.style.transform = "translateY(-20px)";
