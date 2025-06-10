@@ -1,54 +1,340 @@
-/* Aqui vai todo o conteúdo do <style> que estava no seu HTML original, SEM ALTERAÇÃO de estrutura */
-/* ... */
-/* No final do style.css, coloque isso pra responsividade máxima: */
+:root {
+    --deep-blue: #0a192f;
+    --gold: #d4af37;
+    --platinum: #e6e6e6;
+    --dark-gray: #1a1a1a;
+    --light-gray: #f5f5f5;
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-@media (max-width: 1024px) {
-  .session-title { font-size: 2.8rem; }
-  .section-title { font-size: 1.8rem; }
-  .conclusion-title { font-size: 2rem; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, var(--deep-blue) 0%, #0c2340 100%);
+    color: var(--platinum);
+    line-height: 1.8;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 20%);
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+header {
+    text-align: center;
+    padding: 4rem 0 6rem;
+    position: relative;
+}
+
+.brand-mark {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 2rem;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 25, 47, 0.7);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+    position: relative;
+}
+
+.brand-mark::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    animation: pulse 3s infinite;
+}
+
+.brand-mark i {
+    font-size: 3.5rem;
+    color: var(--gold);
+}
+
+.session-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 3.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.session-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gold);
+}
+
+.session-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.5px;
+}
+
+.content-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-bottom: 6rem;
+    align-items: center;
+}
+
+.content-section:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.section-visual {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.visual-element {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 25, 47, 0.9) 0%, rgba(21, 42, 73, 0.9) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: var(--transition);
+}
+
+.visual-element:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+.visual-element::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shine 6s infinite;
+}
+
+.visual-icon {
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    z-index: 2;
+}
+
+.visual-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: 1;
+}
+
+.section-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.section-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--gold);
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+}
+
+.section-text {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    padding-left: 20px;
+}
+
+.section-text::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    height: calc(100% - 20px);
+    width: 3px;
+    background: var(--gold);
+}
+
+.highlight {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 4rem auto;
+    max-width: 800px;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.divider-icon {
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+}
+
+.conclusion {
+    text-align: center;
+    max-width: 800px;
+    margin: 6rem auto 4rem;
+    padding: 3rem;
+    background: rgba(10, 25, 47, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.conclusion::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gold);
+}
+
+.conclusion-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--gold);
+}
+
+.conclusion-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.signature {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-text {
+    max-width: 600px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shine {
+    0% { transform: rotate(45deg) translateX(-100%); }
+    100% { transform: rotate(45deg) translateX(100%); }
 }
 
 @media (max-width: 768px) {
-  .content-section,
-  .content-section:nth-child(even) {
-    flex-direction: column !important;
+    .session-title { font-size: 2.5rem; }
+    .section-title { font-size: 1.8rem; }
+    .content-section, .content-section:nth-child(even) { flex-direction: column; }
+    .section-visual { height: 300px; }
   }
-
-  .section-visual {
-    height: 250px;
-  }
-
-  .session-title {
-    font-size: 2.3rem;
-  }
-
-  .visual-icon {
-    font-size: 3.5rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .section-subtitle,
-  .section-text {
-    font-size: 1rem;
-  }
-
-  .container {
-    padding: 2rem 1rem;
-  }
-
-  .brand-mark {
-    width: 90px;
-    height: 90px;
-  }
-
-  .brand-mark i {
-    font-size: 2.5rem;
-  }
-
-  .footer-text {
-    font-size: 0.8rem;
-  }
-}
