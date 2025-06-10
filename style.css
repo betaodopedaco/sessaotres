@@ -1,0 +1,54 @@
+/* Aqui vai todo o conteúdo do <style> que estava no seu HTML original, SEM ALTERAÇÃO de estrutura */
+/* ... */
+/* No final do style.css, coloque isso pra responsividade máxima: */
+
+@media (max-width: 1024px) {
+  .session-title { font-size: 2.8rem; }
+  .section-title { font-size: 1.8rem; }
+  .conclusion-title { font-size: 2rem; }
+}
+
+@media (max-width: 768px) {
+  .content-section,
+  .content-section:nth-child(even) {
+    flex-direction: column !important;
+  }
+
+  .section-visual {
+    height: 250px;
+  }
+
+  .session-title {
+    font-size: 2.3rem;
+  }
+
+  .visual-icon {
+    font-size: 3.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-subtitle,
+  .section-text {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .brand-mark {
+    width: 90px;
+    height: 90px;
+  }
+
+  .brand-mark i {
+    font-size: 2.5rem;
+  }
+
+  .footer-text {
+    font-size: 0.8rem;
+  }
+}
